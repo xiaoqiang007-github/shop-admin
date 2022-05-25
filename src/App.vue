@@ -9,8 +9,24 @@ import HelloWorld from './components/HelloWorld.vue'
     alt="Vue logo"
     src="./assets/logo.png"
   >
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <HelloWorld
+    ref="helloWorld"
+    msg="Hello Vue 3 + TypeScript + Vite"
+  />
 </template>
+
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
+defineProps<{msg: string}>()
+
+// InstanceType 指定组件实例类型，这样就可以正常访问属性了
+const helloWorld = ref<InstanceType<typeof HelloWorld> | null>(null)
+
+onMounted(() => {
+  console.log(helloWorld.value)
+})
+</script>
 
 <style>
 #app {

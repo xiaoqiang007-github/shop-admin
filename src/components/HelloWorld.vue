@@ -1,13 +1,22 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
-defineProps<{ msg: string }>()
+const props = defineProps<{msg: string}>()
 
 const count = ref(0)
+
+// 告诉ref Dom元素类型 HTMLHeadElement
+const title = ref<HTMLHeadElement | null>(null)
+
+onMounted(() => {
+  console.log(title.value)
+})
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1 ref="title">
+    {{ props.msg }}
+  </h1>
 
   <p>
     Recommended IDE setup:
