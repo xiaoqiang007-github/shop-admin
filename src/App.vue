@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 // Module '"vue"' has no default export.  使用vetur会出现这个报错 vue3还是得用volar这个插件,安装后就没有报错了
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
 
 defineProps<{msg: string}>()
 

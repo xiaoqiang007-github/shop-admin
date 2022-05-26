@@ -64,7 +64,11 @@ onMounted(() => {
   </p>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+h1 {
+  color: $color;
+}
+
 a {
   color: #42b983;
 }
