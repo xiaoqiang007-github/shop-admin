@@ -17,6 +17,8 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
+    // 解决报错  Component name "login" should always be multi-word  vue/multi-word-component-names
+    'vue/multi-word-component-names': 'off'
   },
   globals: {
     defineProps: 'readonly',

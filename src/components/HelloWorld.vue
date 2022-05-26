@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import TestTsx from './TestTsx.vue'
+import Foo from './foo'
 
 const props = defineProps<{msg: string}>()
 
@@ -14,6 +16,9 @@ onMounted(() => {
 </script>
 
 <template>
+  <TestTsx />
+  <Foo msg="str" />
+
   <h1 ref="title">
     {{ props.msg }}
   </h1>

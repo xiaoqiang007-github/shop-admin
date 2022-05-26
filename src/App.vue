@@ -1,9 +1,3 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
   <img
     alt="Vue logo"
@@ -13,10 +7,20 @@ import HelloWorld from './components/HelloWorld.vue'
     ref="helloWorld"
     msg="Hello Vue 3 + TypeScript + Vite"
   />
+  <router-link to="/">
+    Go to Home
+  </router-link>
+  <br>
+  <router-link to="/login">
+    Go to Login
+  </router-link>
+  <router-view />
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+// Module '"vue"' has no default export.  使用vetur会出现这个报错 vue3还是得用volar这个插件,安装后就没有报错了
+import HelloWorld from './components/HelloWorld.vue'
 
 defineProps<{msg: string}>()
 
