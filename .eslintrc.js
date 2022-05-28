@@ -25,5 +25,12 @@ module.exports = {
     defineEmits: 'readonly',
     defineExpose: 'readonly',
     withDefaults: 'readonly'
-  }
+  },
+  // 为单个文件设置样式
+  overrides: [{
+    files: ['src/api/**.*.ts'],
+    rules: {
+      camelcase: 'off'
+    }
+  }]
 }

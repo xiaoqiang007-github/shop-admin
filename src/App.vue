@@ -1,7 +1,7 @@
 <template>
   <img
     alt="Vue logo"
-    src="./assets/logo.png"
+    src="@/assets/logo.png"
   >
   <HelloWorld
     ref="helloWorld"

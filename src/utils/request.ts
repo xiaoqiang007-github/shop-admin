@@ -1,7 +1,8 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 
 const instance = axios.create({
-  baseURL: 'https://shop.fed.lagounews.com/api/admin'
+  // baseURL: 'https://shop.fed.lagounews.com/api/admin'
+  baseURL: import.meta.env.VITE_API_BASEURL
 })
 
 instance.interceptors.request.use(
@@ -31,6 +32,11 @@ instance.interceptors.response.use(
   }
 )
 
-export const request = instance
+// 封装泛型请求方法
+export const request = <T = any>(config: AxiosRequestConfig) => {
+  return instance(config).then(res => {
+    return res.data.data as T
+  })
+}
 
 export const userInfo = '/login/info'
