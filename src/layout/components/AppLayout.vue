@@ -1,11 +1,14 @@
 <template>
   <div class="common-layout">
     <el-container>
-      <el-aside width="200px">
+      <el-aside>
         <AppAside />
       </el-aside>
       <el-container>
-        <el-header>Header</el-header>
+        <el-header>
+          <ToggleSidebar />
+          <Bread />
+        </el-header>
         <el-main>
           <router-view />
         </el-main>
@@ -16,16 +19,21 @@
 
 <script setup lang="ts">
 import AppAside from './AppAside.vue'
+import ToggleSidebar from './ToggleSidebar.vue'
+import Bread from './Bread.vue'
 </script>
 
 <style lang="scss" scoped>
 .el-container {
   height: 100vh;
   .el-header {
+    display: flex;
+    align-items: center;
     background-color: rgb(198, 226, 225);
   }
 
   .el-aside {
+    width: auto;
     background-color: rgb(217, 236, 255);
   }
   .el-main {

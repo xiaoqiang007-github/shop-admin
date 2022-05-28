@@ -1,23 +1,35 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import ProductRoutes from './modules/product'
+import MediaRoutes from './modules/media'
+import OrderRoutes from './modules/order'
+import PermissionRoutes from './modules/permission'
 const routes = [
   {
     path: '/',
     name: 'wrapper',
     component: () => import('@/layout/components/AppLayout.vue'),
+    meta: {
+      title: '首页'
+    },
     children: [
       {
         path: '',
         name: 'home',
         component: () => import('@/views/login.vue')
       },
-      ProductRoutes
+      ProductRoutes,
+      MediaRoutes,
+      OrderRoutes,
+      PermissionRoutes
     ]
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/login.vue')
+    component: () => import('@/views/login.vue'),
+    meta: {
+      title: '登录'
+    }
   }
 ]
 
