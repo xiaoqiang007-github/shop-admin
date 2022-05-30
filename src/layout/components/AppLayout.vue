@@ -9,6 +9,7 @@
           <ToggleSidebar />
           <Bread />
           <FullScreen />
+          <UserInfo />
         </el-header>
         <el-main>
           <router-view />
@@ -23,6 +24,7 @@ import AppAside from './AppAside.vue'
 import ToggleSidebar from './ToggleSidebar.vue'
 import Bread from './Bread.vue'
 import FullScreen from './FullScreen.vue'
+import UserInfo from './UserInfo.vue'
 </script>
 
 <style lang="scss" scoped>
