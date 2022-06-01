@@ -5,6 +5,7 @@ import OrderRoutes from './modules/order'
 import PermissionRoutes from './modules/permission'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import { useContainerStore } from '@/stores/contanier'
 
 const routes = [
   {
@@ -31,7 +32,8 @@ const routes = [
     name: 'login',
     component: () => import('@/views/login/index.vue'),
     meta: {
-      title: '登录'
+      title: '登录',
+      notAuthenticated: true // 不需要权限的页面，默认没有改属性即需要权限
     }
   }
 ]
@@ -44,6 +46,15 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
+  const container = useContainerStore()
+  if (!to.meta?.notAuthenticated && !container.user) {
+    return next({
+      path: '/login',
+      query: {
+        redirect: to.fullPath
+      }
+    })
+  }
   next()
 })
 

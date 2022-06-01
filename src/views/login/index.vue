@@ -114,11 +114,14 @@ const handleSubmit = async () => {
     loading.value = false
   })
   console.log(data)
-  router.replace({
-    name: 'home'
-  })
+  let redirect = router.currentRoute.value.query.redirect || '/'
+  if (typeof redirect !== 'string') {
+    redirect = '/'
+  }
+  router.replace(redirect)
   // 处理响应
   container.setUser(data.user_info)
+  container.setToken({ token: data.token })
 }
 
 const changeCode = async () => {

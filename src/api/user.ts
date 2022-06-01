@@ -1,4 +1,4 @@
-import { request, userInfo, captchaPro, loginUrl } from '@/utils/request'
+import { request, userInfo, captchaPro, loginUrl, loginOutUrl } from '@/utils/request'
 import type { ILogin, ILoginResponse } from './types/common' // 告诉ts这是类型不是值
 
 export const getInfo = async () => {
@@ -29,5 +29,12 @@ export const login = async (data: {
     method: 'POST',
     url: loginUrl,
     data
+  })
+}
+
+export const loginOut = async () => {
+  return request<ILoginResponse>({
+    method: 'get',
+    url: loginOutUrl
   })
 }
