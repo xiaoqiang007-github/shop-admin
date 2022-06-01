@@ -100,3 +100,5 @@ export const captchaPro = '/captcha_pro'
 export const loginUrl = '/login'
 
 export const loginOutUrl = '/setting/admin/logout'
+
+export const settingAdmin = '/setting/admin'

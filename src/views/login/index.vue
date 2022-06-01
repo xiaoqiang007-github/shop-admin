@@ -71,7 +71,7 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
 import { getCaptcha, login } from '@/api/user'
-import { IELForm } from '@/types/element-plus'
+import { IElForm } from '@/types/element-plus'
 import { useRouter } from 'vue-router'
 import { useContainerStore } from '@/stores/contanier'
 
@@ -94,7 +94,7 @@ const rules = ref({
 })
 
 const codeSrc = ref('')
-const form = ref<IELForm | null>(null)
+const form = ref<IElForm | null>(null)
 
 const router = useRouter()
 
