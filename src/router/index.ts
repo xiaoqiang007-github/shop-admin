@@ -19,7 +19,7 @@ const routes = [
       {
         path: '',
         name: 'home',
-        component: () => import('@/views/login.vue')
+        component: () => import('@/views/home/index.vue')
       },
       ProductRoutes,
       MediaRoutes,
