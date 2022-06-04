@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <table id="TableToExport"></table>
+  <div id="TableContainer"></div>
+  <button id="sheetjsexport" onclick="Table2XLSX()"><b>Export as XLSX</b></button>
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <script>
+ (async() => {
+  const f = await fetch(URL_TO_DOWNLOAD); // replace with the URL of the file
+  const ab = await f.arrayBuffer();
+
+  /* Parse file and get first worksheet */
+  const wb = XLSX.read(ab);
+  const ws = wb.Sheets[wb.SheetNames[0]];
+
+  /* Generate HTML */
+  var output = document.getElementById("TableContainer");
+  output.innerHTML = XLSX.utils.sheet_to_html(ws);
+})();
+  </script>
+</body>
+
+</html>

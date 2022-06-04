@@ -35,7 +35,17 @@ const routes = [
       title: '登录',
       notAuthenticated: true // 不需要权限的页面，默认没有改属性即需要权限
     }
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('@/template.vue'),
+    meta: {
+      title: '登录',
+      notAuthenticated: true // 不需要权限的页面，默认没有改属性即需要权限
+    }
   }
+
 ]
 
 const router = createRouter({
